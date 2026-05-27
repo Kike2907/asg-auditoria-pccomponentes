@@ -1,10 +1,10 @@
-# 🌱 Auditoría de Sostenibilidad (ASG) - PCComponentes
+#  Auditoría de Sostenibilidad (ASG) - PCComponentes
 
 **Junior GreenOps Developer | Auditoría Técnica de Sostenibilidad Digital**
 
 ---
 
-## 📋 Información General
+##  Información General
 
 | Campo | Valor |
 |-------|-------|
@@ -16,16 +16,16 @@
 
 ---
 
-## 🎯 Objetivos de la Auditoría
+##  Objetivos de la Auditoría
 
-1. **Dimensión Ambiental (A)**: Analizar huella de carbono digital y consumo energético
-2. **Dimensión Social (S)**: Evaluar accesibilidad WCAG 2.2 e inclusión digital
-3. **Dimensión Gobernanza (G)**: Revisar transparencia, privacidad y patrones oscuros
+1. **Dimensión Ambiental **: Analizar huella de carbono digital y consumo energético
+2. **Dimensión Social **: Evaluar accesibilidad WCAG 2.2 e inclusión digital
+3. **Dimensión Gobernanza **: Revisar transparencia, privacidad y patrones oscuros
 4. **Propuesta de Mejora**: Green Coding y refactorización sostenible
 
 ---
 
-## 📊 FASE 1: AUDITORÍA AMBIENTAL (A)
+##  FASE 1: AUDITORÍA AMBIENTAL 
 
 ### 1.1 Medición Inicial - Huella de Carbono
 
@@ -35,7 +35,7 @@
 - **Fuente de energía**: Hosting de energías renovables (parcialmente)
 
 #### Google Lighthouse - Rendimiento
-- **Puntuación de Rendimiento**: 28/100 ⚠️ CRÍTICO
+- **Puntuación de Rendimiento**: 28/100 
 - **First Contentful Paint (FCP)**: 3.8s
 - **Largest Contentful Paint (LCP)**: 8.2s
 - **Cumulative Layout Shift (CLS)**: 0.15
@@ -50,7 +50,7 @@
 
 ### 1.3 Análisis: ¿Inflación de Software?
 
-**✅ Conclusión: SÍ, PCComponentes sufre de inflación de software**
+** Conclusión: SÍ, PCComponentes sufre de inflación de software**
 
 **Evidencias**:
 - Descarga **8.5MB de assets** para una página principal (debería ser <2MB)
@@ -66,7 +66,7 @@
 
 ---
 
-## 👥 FASE 2: AUDITORÍA SOCIAL Y EQUIDAD (S)
+## FASE 2: AUDITORÍA SOCIAL Y EQUIDAD (S)
 
 ### 2.1 Evaluación de Accesibilidad WCAG 2.2
 
@@ -76,11 +76,11 @@
 - Manual testing con screen readers
 
 #### Puntuación Accessibility
-- **Lighthouse Accessibility**: 45/100 ⚠️ DEFICIENTE
+- **Lighthouse Accessibility**: 45/100 
 
 ### 2.2 Barreras de Accesibilidad Identificadas
 
-#### **❌ PROBLEMA 1: Falta de Atributos ALT en Imágenes de Productos**
+#### ** PROBLEMA 1: Falta de Atributos ALT en Imágenes de Productos**
 
 **Severidad**: CRÍTICA
 
@@ -91,10 +91,10 @@
 
 **Evidencia**:
 ```html
-<!-- ❌ ACTUAL (Incorrecto) -->
+<!-- ACTUAL (Incorrecto) -->
 <img src="laptop-dell.jpg" />
 
-<!-- ✅ MEJORADO -->
+<!-- MEJORADO -->
 <img src="laptop-dell.jpg" alt="Dell XPS 13 - Portátil ultraligero 13.4 pulgadas FHD+" />
 ```
 
@@ -102,7 +102,7 @@
 
 ---
 
-#### **❌ PROBLEMA 2: Bajo Contraste en Botones y Enlaces**
+#### ** PROBLEMA 2: Bajo Contraste en Botones y Enlaces**
 
 **Severidad**: GRAVE
 
@@ -113,13 +113,13 @@
 
 **Solución**:
 ```css
-/* ❌ ACTUAL */
+/* ACTUAL */
 .btn-add-cart {
   background-color: #EEEEEE;
   color: #666666; /* Ratio contraste: 2.5:1 */
 }
 
-/* ✅ MEJORADO */
+/*  MEJORADO */
 .btn-add-cart {
   background-color: #FF6B35; /* Naranja corporativo */
   color: #FFFFFF; /* Ratio contraste: 7.2:1 */
@@ -128,24 +128,24 @@
 
 ---
 
-#### **❌ PROBLEMA 3: Formulario de Búsqueda sin Etiquetas Semánticas**
+#### **PROBLEMA 3: Formulario de Búsqueda sin Etiquetas Semánticas**
 
 **Severidad**: MEDIA
 
 **Código Actual**:
 ```html
-<!-- ❌ INCORRECTO -->
+<!-- INCORRECTO -->
 <input type="text" placeholder="Buscar..." />
-<button>🔍</button>
+<button></button>
 ```
 
 **Código Mejorado**:
 ```html
-<!-- ✅ CORRECTO -->
+<!-- CORRECTO -->
 <form role="search">
   <label for="search-input">Buscar productos</label>
   <input id="search-input" type="search" aria-label="Buscar en PCComponentes" />
-  <button aria-label="Enviar búsqueda">🔍</button>
+  <button aria-label="Enviar búsqueda"></button>
 </form>
 ```
 
@@ -164,16 +164,16 @@
 
 ---
 
-## ⚖️ FASE 3: AUDITORÍA DE GOBERNANZA Y ÉTICA (G)
+##  FASE 3: AUDITORÍA DE GOBERNANZA Y ÉTICA
 
 ### 3.1 Transparencia de Cookies y Consentimiento
 
-#### ❌ **PROBLEMA: Patrones Oscuros (Dark Patterns)**
+####  **PROBLEMA: Patrones Oscuros (Dark Patterns)**
 
 **Evidencia Encontrada**:
 
 ```javascript
-// ❌ PATRÓN OSCURO DETECTADO
+// PATRÓN OSCURO DETECTADO
 // El botón "Rechazar" es pequeño y con bajo contraste
 // El botón "Aceptar" es grande, azul y dominante
 
@@ -192,7 +192,7 @@ analytics.loadTrackers(); // Se ejecuta sin consentimiento previo
 
 #### Formulario de Contacto
 ```html
-<!-- ❌ CAMPOS EXCESIVOS -->
+<!--  CAMPOS EXCESIVOS -->
 <form>
   <input name="nombre" required />
   <input name="email" required />
@@ -208,7 +208,7 @@ analytics.loadTrackers(); // Se ejecuta sin consentimiento previo
 
 ---
 
-## 🔧 FASE 4: PROPUESTA DE REFACTORIZACIÓN (GREEN CODING)
+## FASE 4: PROPUESTA DE REFACTORIZACIÓN (GREEN CODING)
 
 ### 4.1 Optimización de Activos
 
@@ -223,10 +223,10 @@ analytics.loadTrackers(); // Se ejecuta sin consentimiento previo
 
 **Implementación**:
 ```html
-<!-- ❌ ACTUAL -->
+<!--  ACTUAL -->
 <img src="producto.jpg" alt="Laptop" />
 
-<!-- ✅ MEJORADO -->
+<!--  MEJORADO -->
 <picture>
   <source srcset="producto.avif" type="image/avif" />
   <source srcset="producto.webp" type="image/webp" />
@@ -241,12 +241,12 @@ analytics.loadTrackers(); // Se ejecuta sin consentimiento previo
 #### **B) Lazy Loading para Imágenes Fuera del Viewport**
 
 ```html
-<!-- ❌ ACTUAL: Carga todo inmediatamente -->
+<!-- ACTUAL: Carga todo inmediatamente -->
 <img src="producto-1.jpg" alt="Producto 1" />
 <img src="producto-2.jpg" alt="Producto 2" />
 <!-- ... 50 productos más ... -->
 
-<!-- ✅ MEJORADO: Carga bajo demanda -->
+<!--  MEJORADO: Carga bajo demanda -->
 <img src="placeholder.svg" 
      data-src="producto-1.jpg" 
      alt="Producto 1"
@@ -286,12 +286,12 @@ images.forEach(img => observer.observe(img));
 #### **B) Diferir Scripts de Terceros**
 
 ```html
-<!-- ❌ ACTUAL: Bloquean el rendering -->
+<!--  ACTUAL: Bloquean el rendering -->
 <script src="google-analytics.js"></script>
 <script src="hotjar.js"></script>
 <script src="criteo.js"></script>
 
-<!-- ✅ MEJORADO: Cargan después del contenido -->
+<!--  MEJORADO: Cargan después del contenido -->
 <script defer src="google-analytics.js"></script>
 <script defer src="hotjar.js"></script>
 <script defer src="criteo.js"></script>
@@ -307,7 +307,7 @@ images.forEach(img => observer.observe(img));
 #### **A) HTML Semántico**
 
 ```html
-<!-- ❌ ACTUAL -->
+<!--  ACTUAL -->
 <div class="header">
   <div class="nav">
     <div class="menu-item"><a href="/">Inicio</a></div>
@@ -317,7 +317,7 @@ images.forEach(img => observer.observe(img));
 <div class="main-content">...</div>
 <div class="footer">...</div>
 
-<!-- ✅ MEJORADO -->
+<!--  MEJORADO -->
 <header>
   <nav aria-label="Principal">
     <ul>
@@ -333,7 +333,7 @@ images.forEach(img => observer.observe(img));
 #### **B) Mejorar Contraste - CSS**
 
 ```css
-/* ✅ Colores accesibles */
+/*  Colores accesibles */
 :root {
   --color-primary: #FF6B35; /* Naranja vivo */
   --color-text: #1A1A1A; /* Negro puro */
@@ -361,14 +361,14 @@ button {
 #### **A) Banner de Cookies Transparente y Accesible**
 
 ```html
-<!-- ❌ PATRÓN OSCURO -->
+<!--  PATRÓN OSCURO -->
 <div class="cookie-banner">
   <p style="font-size: 8px;">Utilizamos cookies...</p>
   <button class="btn-accept">Aceptar</button> <!-- Grande -->
   <button class="btn-reject" style="font-size: 10px;">Rechazar</button> <!-- Pequeño -->
 </div>
 
-<!-- ✅ PATRÓN TRANSPARENTE -->
+<!--  PATRÓN TRANSPARENTE -->
 <dialog id="cookie-consent" aria-labelledby="cookie-title">
   <h2 id="cookie-title">Gestionar tu consentimiento</h2>
   
@@ -411,7 +411,7 @@ function acceptAll() {
 #### **B) Simplificar Formulario de Contacto**
 
 ```html
-<!-- ❌ INCORRECTO: 7 campos + profilado -->
+<!--  INCORRECTO: 7 campos + profilado -->
 <form id="contact">
   <input name="nombre" required />
   <input name="email" required />
@@ -423,7 +423,7 @@ function acceptAll() {
   <textarea name="mensaje"></textarea>
 </form>
 
-<!-- ✅ CORRECTO: Mínimo y transparente -->
+<!-- CORRECTO: Mínimo y transparente -->
 <form id="contact">
   <fieldset>
     <legend>Información de contacto</legend>
@@ -454,7 +454,7 @@ function acceptAll() {
 
 ---
 
-## 📈 COMPARATIVA: ANTES vs DESPUÉS
+##  COMPARATIVA: ANTES vs DESPUÉS
 
 ### Rendimiento
 
@@ -485,7 +485,7 @@ function acceptAll() {
 
 ---
 
-## 🤔 Reflexión: Paradoja de Jevons
+##  Reflexión: Paradoja de Jevons
 
 ### ¿Qué sucede si optimizamos PCComponentes y se vuelve viral?
 
@@ -510,7 +510,7 @@ function acceptAll() {
 
 ---
 
-### 🎯 Solución: Sostenibilidad Integral (No Solo Optimización)
+###  Solución: Sostenibilidad Integral (No Solo Optimización)
 
 Para evitar la Paradoja de Jevons, PCComponentes debe:
 
@@ -560,7 +560,7 @@ Usuario ve en la web:
 
 ---
 
-## 📚 Herramientas Utilizadas
+##  Herramientas Utilizadas
 
 | Herramienta | Función | Resultado |
 |-------------|---------|-----------|
@@ -572,7 +572,7 @@ Usuario ve en la web:
 
 ---
 
-## ✅ Conclusiones y Recomendaciones
+## Conclusiones y Recomendaciones
 
 ### Prioridades Inmediatas (Sprint 1-2)
 
