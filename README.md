@@ -590,8 +590,8 @@ Usuario ve en la web:
 
 ### Largo Plazo (Roadmap)
 
-9. Certificación Green Hosting
+9. Certificación Green Hosting 
 10. Programa de Compensación de Carbono
 11. Dashboard de impacto sostenible visible al usuario
 12. Auditorías trimestrales de sostenibilidad
-
+13. Está todo correcto
