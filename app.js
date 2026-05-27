@@ -3,7 +3,7 @@
   Script optimizado para PCComponentes
   - Sin librerías externas innecesarias
   - Manejo de cookies transparente
-  - Lazy loading de imágenes
+  - Lazy loading de imágenes 
   - Funcionalidad de carrito ligera
 */
 
