@@ -1,0 +1,177 @@
+<!-- 
+  ARCHIVO: ANTES.html
+  Ejemplo de codigo SIN OPTIMIZAR (estado actual de PCComponentes)
+  Usado para comparacion visual "ANTES vs DESPUES"
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PCComponentes</title>
+  <!-- PROBLEMA 1: Sin viewport -->
+  
+  <!-- PROBLEMA 2: jQuery innecesario -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- PROBLEMA 3: Bootstrap duplicado -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  
+  <!-- PROBLEMA 4: Font Awesome (120KB) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- PROBLEMA 5: Analytics sin control de consentimiento -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/ga.js','ga');
+  </script>
+  
+  <!-- PROBLEMA 6: Estilos inline y no optimizados -->
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .btn-add-cart { 
+      background-color: #EEEEEE; 
+      color: #666666; /* Contraste 2.5:1 - NO ACCESIBLE */
+    }
+    img { max-width: 100%; }
+  </style>
+</head>
+<body>
+  <!-- PROBLEMA: Div generico sin semantica -->
+  <div class="header">
+    <!-- Sin etiqueta <header> semantica -->
+    <div class="nav">
+      <a href="/">Inicio</a>
+      <a href="/productos">Productos</a>
+    </div>
+    
+    <!-- PROBLEMA: Formulario sin etiquetas -->
+    <input type="text" placeholder="Buscar...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
+
+  <!-- PROBLEMA: Video de fondo autoplay sin lazy loading -->
+  <video autoplay muted loop style="width: 100%; height: 500px;">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="main-content">
+    <h1>Bienvenido</h1>
+
+    <!-- PROBLEMA: Productos cargados todos de una vez -->
+    <div class="products">
+      <div class="product">
+        <!-- PROBLEMA 1: Imagen sin ALT -->
+        <img src="laptop-1.jpg" style="width: 300px; height: 300px;">
+        
+        <!-- PROBLEMA 2: JPG sin comprimir (250KB) en lugar de WebP (89KB) -->
+        
+        <!-- PROBLEMA 3: Sin atributos de accesibilidad -->
+        <h3>Dell XPS 13</h3>
+        <p>1.299 EUR</p>
+        <button class="btn-add-cart" onclick="addToCart()">
+          <!-- Bajo contraste 2.5:1 -->
+          Anadir al carrito
+        </button>
+      </div>
+
+      <!-- Repite 100 veces sin lazy loading -->
+      <div class="product">
+        <img src="laptop-2.jpg" style="width: 300px; height: 300px;">
+        <h3>NVIDIA RTX 4080</h3>
+        <p>1.599 EUR</p>
+        <button class="btn-add-cart" onclick="addToCart()">Anadir</button>
+      </div>
+
+      <div class="product">
+        <img src="laptop-3.jpg" style="width: 300px; height: 300px;">
+        <h3>Corsair DDR5</h3>
+        <p>399 EUR</p>
+        <button class="btn-add-cart" onclick="addToCart()">Anadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEMA: Cookie banner con patrones oscuros -->
+  <div class="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #f5f5f5; padding: 10px;">
+    <p style="font-size: 8px;">Utilizamos cookies para mejorar tu experiencia...</p>
+    
+    <!-- Boton "Aceptar" es GRANDE (40x20px) -->
+    <button style="background: #0066cc; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+      Aceptar
+    </button>
+    
+    <!-- Boton "Rechazar" es PEQUENO (20x15px) y bajo contraste -->
+    <button style="background: #ccc; color: #666; padding: 5px 8px; font-size: 10px; border: none; cursor: pointer;">
+      Rechazar
+    </button>
+    <!-- Sin opcion "Mas informacion" facil de encontrar -->
+  </div>
+
+  <!-- PROBLEMA: jQuery cargado y usado innecesariamente -->
+  <script>
+    $(document).ready(function() {
+      // Buscar productos con jQuery (podria ser vanilla JS)
+      $('.search-input').on('input', function() {
+        var query = $(this).val();
+        $('.product').each(function() {
+          if ($(this).find('h3').text().includes(query)) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
+
+      // Analytics sin consentimiento
+      ga('send', 'pageview');
+    });
+
+    function addToCart() {
+      alert('Producto anadido'); // Experiencia de usuario pobre
+    }
+  </script>
+
+  <!-- PROBLEMA: Multiples scripts de terceros sin control -->
+  <script src="https://cdn.criteo.com/js/ld/ld.js"></script>
+  <script src="https://script.hotjar.com/modules.js"></script>
+  
+</body>
+</html>
+
+<!--
+  ============================================
+  RESUMEN DE PROBLEMAS IDENTIFICADOS
+  ============================================
+
+  AMBIENTAL (A):
+  PROBLEMA 1: Imagenes JPG sin comprimir (250KB c/u vs 89KB WebP)
+  PROBLEMA 2: Video de fondo autoplay (2.5MB)
+  PROBLEMA 3: jQuery + Bootstrap redundantes (342KB)
+  PROBLEMA 4: Analytics + Marketing sin defer (125KB)
+  PROBLEMA 5: Font Awesome completo (120KB)
+  PROBLEMA 6: Todas las imagenes cargadas al instante (sin lazy loading)
+  
+  RESULTADO: 8.5MB total, 112 peticiones HTTP, LCP 8.2s, 2.42g CO2
+
+  SOCIAL (S):
+  PROBLEMA 1: Imagenes sin atributo ALT
+  PROBLEMA 2: Formulario de busqueda sin etiqueta <label>
+  PROBLEMA 3: Boton con contraste 2.5:1 (NO WCAG AA)
+  PROBLEMA 4: Sin HTML semantico (div genericos)
+  PROBLEMA 5: Sin soporte para screen readers
+  PROBLEMA 6: Video sin subtitulos
+
+  RESULTADO: Lighthouse Accessibility 45/100
+
+  GOBERNANZA (G):
+  PROBLEMA 1: Banner de cookies con patron oscuro (boton Aceptar grande, Rechazar pequeno)
+  PROBLEMA 2: Analytics cargado ANTES de obtener consentimiento
+  PROBLEMA 3: Sin opcion clara para rechazar
+  PROBLEMA 4: Texto pequeno (8px) sobre privacidad
+  PROBLEMA 5: Sin politica de privacidad facil de acceder
+
+  RESULTADO: Incumplimiento RGPD y eIDAS
+-->
