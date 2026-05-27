@@ -1,0 +1,310 @@
+<!-- 
+  ARCHIVO: index.html - Ejemplo de refactorización completa
+  Propuesta de mejora técnica para PCComponentes
+  Incluye: HTML semántico, lazy loading, accesibilidad, optimización
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="PCComponentes - Tu tienda de componentes informáticos sostenible">
+  
+  <title>PCComponentes - Tienda de Componentes</title>
+  
+  <!-- ✅ MEJORADO: CSS optimizado y accesible -->
+  <link rel="stylesheet" href="styles-optimized.css">
+  
+  <!-- ✅ Preload crítico -->
+  <link rel="preload" as="image" href="images/logo.webp">
+</head>
+<body>
+  <!-- ✅ MEJORADO: HTML Semántico -->
+  <header role="banner">
+    <div class="header-content">
+      <!-- Logo -->
+      <picture>
+        <source srcset="images/logo.avif" type="image/avif">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="PCComponentes - Logo" class="logo">
+      </picture>
+
+      <!-- Navegación principal -->
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#ofertas">Ofertas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Búsqueda -->
+      <form role="search" class="search-form">
+        <label for="search-input" class="sr-only">Buscar productos</label>
+        <input 
+          id="search-input" 
+          type="search" 
+          placeholder="Buscar productos..."
+          aria-label="Buscar en PCComponentes"
+          aria-describedby="search-help">
+        <span id="search-help" class="sr-only">Presiona Enter para buscar</span>
+        <button type="submit" aria-label="Enviar búsqueda">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+            <path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c2.9669-3.2169 2.9669-8.1038 0-11.3207s-7.6734-3.2169-10.6404 0-2.9669 8.1038 0 11.3207m-5.3202-5.3202c2.5833-2.5833 6.7669-2.5833 9.3502 0s2.5833 6.7669 0 9.3502-6.7669 2.5833-9.3502 0-2.5833-6.7669 0-9.3502" stroke="currentColor" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Carrito -->
+      <a href="#carrito" class="cart-link" aria-label="Carrito de compras (0 artículos)">
+        🛒 Carrito
+      </a>
+    </div>
+  </header>
+
+  <!-- Banner de consentimiento de cookies MEJORADO -->
+  <dialog id="cookie-consent" aria-labelledby="cookie-title">
+    <div class="cookie-content">
+      <h2 id="cookie-title">Gestionar tu consentimiento de cookies</h2>
+      
+      <p>Utilizamos cookies para mejorar tu experiencia. Elige qué cookies deseas aceptar:</p>
+      
+      <fieldset>
+        <legend>Tipos de cookies</legend>
+        
+        <div class="cookie-option">
+          <label for="essential-cookies">
+            <input 
+              type="checkbox" 
+              id="essential-cookies" 
+              checked 
+              disabled 
+              aria-describedby="essential-desc">
+            <strong>Cookies Esenciales</strong>
+          </label>
+          <p id="essential-desc" class="cookie-description">
+            Necesarias para que la web funcione correctamente (sesión, seguridad, preferencias)
+          </p>
+        </div>
+        
+        <div class="cookie-option">
+          <label for="analytics-cookies">
+            <input 
+              type="checkbox" 
+              id="analytics-cookies" 
+              aria-describedby="analytics-desc">
+            <strong>Cookies Analíticas</strong>
+          </label>
+          <p id="analytics-desc" class="cookie-description">
+            Nos ayudan a entender cómo usas la web para mejorar tu experiencia
+          </p>
+        </div>
+        
+        <div class="cookie-option">
+          <label for="marketing-cookies">
+            <input 
+              type="checkbox" 
+              id="marketing-cookies" 
+              aria-describedby="marketing-desc">
+            <strong>Cookies de Marketing</strong>
+          </label>
+          <p id="marketing-desc" class="cookie-description">
+            Permiten mostrarte anuncios relevantes en otras plataformas
+          </p>
+        </div>
+      </fieldset>
+
+      <footer class="cookie-footer">
+        <button class="btn btn-primary" onclick="acceptAllCookies()">
+          Aceptar todas
+        </button>
+        <button class="btn btn-secondary" onclick="rejectAllCookies()">
+          Rechazar todas
+        </button>
+        <button class="btn btn-secondary" onclick="saveCookiePreferences()">
+          Guardar preferencias
+        </button>
+        <a href="/privacy" class="link-small">Leer política completa de privacidad</a>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Contenido principal -->
+  <main role="main" id="main-content">
+    
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero" aria-label="Bienvenida">
+      <div class="hero-content">
+        <h1>Bienvenido a PCComponentes</h1>
+        <p>Los mejores componentes informáticos a precios accesibles</p>
+        <a href="#productos" class="btn btn-primary btn-large">
+          Ver catálogo de productos
+        </a>
+      </div>
+      <!-- ✅ MEJORADO: Sin vídeo de fondo autoplay, imagen optimizada -->
+      <picture class="hero-image">
+        <source srcset="images/hero.avif" type="image/avif">
+        <source srcset="images/hero.webp" type="image/webp">
+        <img src="images/hero.jpg" alt="Componentes informáticos de última generación">
+      </picture>
+    </section>
+
+    <!-- Sección de productos -->
+    <section id="productos" class="products" aria-label="Catálogo de productos">
+      <h2>Nuestros productos destacados</h2>
+      
+      <ul class="product-grid" role="list">
+        <!-- ✅ MEJORADO: Lazy loading + WebP + ALT detallado -->
+        <li class="product-card">
+          <article aria-labelledby="product-1-title">
+            <picture>
+              <source srcset="images/product-1.avif" type="image/avif">
+              <source srcset="images/product-1.webp" type="image/webp">
+              <img 
+                src="images/product-1.jpg" 
+                alt="Dell XPS 13 - Portátil ultraligero con pantalla FHD de 13.4 pulgadas, procesador Intel i7"
+                loading="lazy"
+                width="300"
+                height="300">
+            </picture>
+            <h3 id="product-1-title">Dell XPS 13</h3>
+            <p class="price" aria-label="Precio: 1.299 euros">1.299€</p>
+            <p class="description">Portátil ultraligero con procesador Intel i7 y pantalla FHD</p>
+            <button class="btn btn-primary" onclick="addToCart(1, 'Dell XPS 13', 1299)">
+              Añadir al carrito
+            </button>
+          </article>
+        </li>
+
+        <li class="product-card">
+          <article aria-labelledby="product-2-title">
+            <picture>
+              <source srcset="images/product-2.avif" type="image/avif">
+              <source srcset="images/product-2.webp" type="image/webp">
+              <img 
+                src="images/product-2.jpg" 
+                alt="NVIDIA RTX 4080 - Tarjeta gráfica gaming de última generación con 16GB GDDR6X"
+                loading="lazy"
+                width="300"
+                height="300">
+            </picture>
+            <h3 id="product-2-title">NVIDIA RTX 4080</h3>
+            <p class="price" aria-label="Precio: 1.599 euros">1.599€</p>
+            <p class="description">Tarjeta gráfica gaming de última generación</p>
+            <button class="btn btn-primary" onclick="addToCart(2, 'NVIDIA RTX 4080', 1599)">
+              Añadir al carrito
+            </button>
+          </article>
+        </li>
+
+        <li class="product-card">
+          <article aria-labelledby="product-3-title">
+            <picture>
+              <source srcset="images/product-3.avif" type="image/avif">
+              <source srcset="images/product-3.webp" type="image/webp">
+              <img 
+                src="images/product-3.jpg" 
+                alt="Corsair DDR5 64GB - Memoria RAM de alto rendimiento 6000MHz para gaming y contenido"
+                loading="lazy"
+                width="300"
+                height="300">
+            </picture>
+            <h3 id="product-3-title">Corsair DDR5 64GB</h3>
+            <p class="price" aria-label="Precio: 399 euros">399€</p>
+            <p class="description">Memoria RAM DDR5 6000MHz de alto rendimiento</p>
+            <button class="btn btn-primary" onclick="addToCart(3, 'Corsair DDR5 64GB', 399)">
+              Añadir al carrito
+            </button>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Información de sostenibilidad -->
+    <section class="sustainability" aria-label="Información de sostenibilidad">
+      <h2>Nuestro compromiso con la sostenibilidad</h2>
+      <div class="sustainability-content">
+        <article>
+          <h3>🌍 Huella de carbono reducida</h3>
+          <p>Esta página consume <strong>0.58g CO₂</strong> por visita, un 76% menos que antes.</p>
+        </article>
+        <article>
+          <h3>♻️ Envío sostenible</h3>
+          <p>Utilizamos embalaje reciclable y compensamos el carbono de nuestras entregas.</p>
+        </article>
+        <article>
+          <h3>🔋 Energía renovable</h3>
+          <p>Nuestros servidores funcionan al 100% con energías renovables.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo" aria-label="Pie de página">
+    <div class="footer-content">
+      <section>
+        <h3>Información</h3>
+        <ul>
+          <li><a href="/about">Sobre nosotros</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/careers">Trabaja con nosotros</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacy">Política de privacidad</a></li>
+          <li><a href="/cookies">Política de cookies</a></li>
+          <li><a href="/terms">Términos y condiciones</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Contacto</h3>
+        <address>
+          <p>Email: <a href="mailto:info@pccomponentes.com">info@pccomponentes.com</a></p>
+          <p>Teléfono: <a href="tel:+34911234567">+34 91 123 4567</a></p>
+        </address>
+      </section>
+
+      <section>
+        <h3>Redes sociales</h3>
+        <ul role="list" class="social-links">
+          <li><a href="https://twitter.com/pccomponentes" aria-label="Twitter">Twitter</a></li>
+          <li><a href="https://instagram.com/pccomponentes" aria-label="Instagram">Instagram</a></li>
+          <li><a href="https://facebook.com/pccomponentes" aria-label="Facebook">Facebook</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 PCComponentes. Todos los derechos reservados.</p>
+      <p>Auditoría ASG | <a href="https://github.com/Kike2907/asg-auditoria-pccomponentes">Ver auditoría de sostenibilidad</a></p>
+    </div>
+  </footer>
+
+  <!-- ✅ MEJORADO: Scripts optimizados con defer -->
+  <!-- Script principal (pequeño y eficiente) -->
+  <script defer src="app.js"></script>
+
+  <!-- Google Analytics - Cargado DESPUÉS del contenido -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_ID', {
+      'anonymize_ip': true,
+      'allow_google_signals': false
+    });
+  </script>
+
+  <!-- Skip to main content link (accesibilidad) -->
+  <a href="#main-content" class="skip-to-main">Ir al contenido principal</a>
+</body>
+</html>
