@@ -595,7 +595,3 @@ Usuario ve en la web:
 11. Dashboard de impacto sostenible visible al usuario
 12. Auditorías trimestrales de sostenibilidad
 
----
-
-*Documento generado bajo principios de Green Software Engineering.*  
-*Contribuye a un internet más sostenible. 🌍♻️*
