@@ -4,7 +4,7 @@
   Incluye: Contraste WCAG AAA, diseño responsivo, modo oscuro
 */
 
-/* ✅ MEJORADO: Variables de color con contraste accesible */
+/*  MEJORADO: Variables de color con contraste accesible */
 :root {
   /* Colores principales */
   --color-primary: #FF6B35; /* Naranja vivo - Contraste 5.8:1 */
@@ -42,7 +42,7 @@
   --transition-normal: 300ms ease-in-out;
 }
 
-/* ✅ MEJORADO: Modo oscuro accesible */
+/*  MEJORADO: Modo oscuro accesible */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #F0F0F0;
@@ -53,7 +53,7 @@
   }
 }
 
-/* ✅ MEJORADO: Modo de consumo reducido */
+/* MEJORADO: Modo de consumo reducido */
 @media (prefers-reduced-data: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -62,7 +62,7 @@
   }
 }
 
-/* ✅ MEJORADO: Modo de movimiento reducido */
+/*  MEJORADO: Modo de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -90,7 +90,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ✅ MEJORADO: Skip to main content (accesibilidad) */
+/*  MEJORADO: Skip to main content (accesibilidad) */
 .skip-to-main {
   position: absolute;
   top: -40px;
@@ -106,7 +106,7 @@ body {
   top: 0;
 }
 
-/* ✅ Screen reader only text */
+/*  Screen reader only text */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -265,7 +265,7 @@ nav a:focus {
   justify-content: center;
 }
 
-/* ✅ MEJORADO: Contraste WCAG AAA (7.2:1) */
+/*  MEJORADO: Contraste WCAG AAA (7.2:1) */
 .btn-primary {
   background-color: var(--color-primary);
   color: white;
@@ -370,7 +370,7 @@ nav a:focus {
   gap: var(--spacing-lg);
 }
 
-/* ✅ MEJORADO: Tarjetas de producto accesibles */
+/*  MEJORADO: Tarjetas de producto accesibles */
 .product-card {
   border: 2px solid var(--color-border);
   border-radius: 8px;
@@ -399,7 +399,7 @@ nav a:focus {
   margin: var(--spacing-md) 0 var(--spacing-sm);
 }
 
-/* ✅ MEJORADO: Precio con contraste claro */
+/*  MEJORADO: Precio con contraste claro */
 .product-card .price {
   font-size: 1.5rem;
   font-weight: bold;
