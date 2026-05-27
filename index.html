@@ -14,14 +14,14 @@
   
   <title>PCComponentes - Tienda de Componentes</title>
   
-  <!-- ✅ MEJORADO: CSS optimizado y accesible -->
+  <!--  MEJORADO: CSS optimizado y accesible -->
   <link rel="stylesheet" href="styles-optimized.css">
   
-  <!-- ✅ Preload crítico -->
+  <!--  Preload crítico -->
   <link rel="preload" as="image" href="images/logo.webp">
 </head>
 <body>
-  <!-- ✅ MEJORADO: HTML Semántico -->
+  <!--  MEJORADO: HTML Semántico -->
   <header role="banner">
     <div class="header-content">
       <!-- Logo -->
@@ -132,10 +132,10 @@
     </div>
   </dialog>
 
-  <!-- Contenido principal -->
+ 
   <main role="main" id="main-content">
     
-    <!-- Sección Hero -->
+ 
     <section id="inicio" class="hero" aria-label="Bienvenida">
       <div class="hero-content">
         <h1>Bienvenido a PCComponentes</h1>
@@ -144,7 +144,7 @@
           Ver catálogo de productos
         </a>
       </div>
-      <!-- ✅ MEJORADO: Sin vídeo de fondo autoplay, imagen optimizada -->
+     
       <picture class="hero-image">
         <source srcset="images/hero.avif" type="image/avif">
         <source srcset="images/hero.webp" type="image/webp">
@@ -152,12 +152,12 @@
       </picture>
     </section>
 
-    <!-- Sección de productos -->
+ 
     <section id="productos" class="products" aria-label="Catálogo de productos">
       <h2>Nuestros productos destacados</h2>
       
       <ul class="product-grid" role="list">
-        <!-- ✅ MEJORADO: Lazy loading + WebP + ALT detallado -->
+        
         <li class="product-card">
           <article aria-labelledby="product-1-title">
             <picture>
@@ -288,11 +288,11 @@
     </div>
   </footer>
 
-  <!-- ✅ MEJORADO: Scripts optimizados con defer -->
-  <!-- Script principal (pequeño y eficiente) -->
+  
+  
   <script defer src="app.js"></script>
 
-  <!-- Google Analytics - Cargado DESPUÉS del contenido -->
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
   <script defer>
     window.dataLayer = window.dataLayer || [];
